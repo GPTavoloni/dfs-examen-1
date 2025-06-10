@@ -12,6 +12,10 @@ function App() {
     local: 0,
     visitante: 0
   })
+  const [tarjetasRojas, setTarjetasRojas] = useState({
+    local: 0,
+    visitante: 0
+  })
 
   
   const onGol = (equipo) => {
@@ -21,12 +25,17 @@ function App() {
 	  equipo == "local" ? setTarjetasAmarillas({ ...tarjetasAmarillas, local: tarjetasAmarillas.local + 1 }) : setTarjetasAmarillas({ ...tarjetasAmarillas, visitante: tarjetasAmarillas.visitante + 1 });
   
   }
+  const tarjetaRoja = (equipo) => {
+	  equipo == "local" ? setTarjetasRojas({ ...tarjetasRojas, local: tarjetasRojas.local + 1 }) : setTarjetasRojas({ ...tarjetasRojas, visitante: tarjetasRojas.visitante + 1 });
+  }
+   
+   
   
   return (
     <div className='container'>
       <h1>Partido</h1>
-      <Controles onGol={onGol} tarjetaAmarilla={tarjetaAmarilla} />
-      <Display partido={partido} tarjetasAmarillas={tarjetasAmarillas}/>
+      <Controles onGol={onGol} tarjetaAmarilla={tarjetaAmarilla} tarjetaRoja={tarjetaRoja} />
+      <Display partido={partido} tarjetasAmarillas={tarjetasAmarillas} tarjetasRojas={tarjetasRojas}/>
     </div>
   )
 }
