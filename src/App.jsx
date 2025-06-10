@@ -10,7 +10,9 @@ function App() {
   })
 
   const onGol = (equipo) => {
-    setPartido({ ...partido, golesLocal: partido.golesLocal + 1 })
+	  console.log(equipo);
+	  equipo == "local" ? setPartido({ ...partido, golesLocal: partido.golesLocal + 1 }) : setPartido({ ...partido, golesVisitante: partido.golesVisitante + 1 });
+    
   }
 
   return (
