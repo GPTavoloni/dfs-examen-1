@@ -1,4 +1,4 @@
-const Controles = ({ onGol,tarjetaAmarilla, tarjetaRoja }) => {
+const Controles = ({ onGol,tarjetaAmarilla, tarjetaRoja ,resetTodo}) => {
   return (
     <div className="controles">
       <div>
@@ -13,6 +13,9 @@ const Controles = ({ onGol,tarjetaAmarilla, tarjetaRoja }) => {
         <button onClick={() => { tarjetaAmarilla('visitante') }}>🟨 Amarilla</button>
         <button onClick={() => { tarjetaRoja('visitante') }}>🟥 Roja</button>        
       </div>
+	<div>
+			<button onClick={() => { resetTodo() }}>🔄 Reset</button>
+	</div>
     </div>
   )
 }

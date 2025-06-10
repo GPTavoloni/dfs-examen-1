@@ -28,13 +28,17 @@ function App() {
   const tarjetaRoja = (equipo) => {
 	  equipo == "local" ? setTarjetasRojas({ ...tarjetasRojas, local: tarjetasRojas.local + 1 }) : setTarjetasRojas({ ...tarjetasRojas, visitante: tarjetasRojas.visitante + 1 });
   }
-   
+ const resetTodo = ()=>{
+	setPartido({...partido,golesLocal:0,golesVisitante:0});
+	setTarjetasAmarillas({...tarjetasAmarillas,local:0,visitante:0});
+	setTarjetasRojas({...tarjetasRojas,local:0,visitante:0});
+ } 
    
   
   return (
     <div className='container'>
       <h1>Partido</h1>
-      <Controles onGol={onGol} tarjetaAmarilla={tarjetaAmarilla} tarjetaRoja={tarjetaRoja} />
+      <Controles onGol={onGol} tarjetaAmarilla={tarjetaAmarilla} tarjetaRoja={tarjetaRoja} resetTodo={resetTodo} />
       <Display partido={partido} tarjetasAmarillas={tarjetasAmarillas} tarjetasRojas={tarjetasRojas}/>
     </div>
   )
